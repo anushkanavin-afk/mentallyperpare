@@ -1,0 +1,16 @@
+README.md
+package.json
+package-lock.json
+server.js
+public/
+send-daily-reminders.js
+railway.toml
+vercel.json
+Procfile
+Dockerfile
+.dockerignore
+.env.example
+app.json
+mentally-prepare.db
+mentally-prepare.db-shm
+mentally-prepare.db-wal
