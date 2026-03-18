@@ -691,15 +691,14 @@ textarea::placeholder{color:rgba(248,242,255,.15)}
 .problem-orb-emoji{font-size:48px;animation:float 4s ease-in-out infinite}
 .problem-ring{position:absolute;inset:-20px;border:1px solid rgba(212,133,154,.08);border-radius:50%;animation:rotateOrb 30s linear infinite}
 .problem-ring-2{position:absolute;inset:-50px;border:1px dashed rgba(123,94,167,.06);border-radius:50%;animation:rotateOrb 45s linear infinite reverse}
-.problem-float-word{position:absolute;font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink-s);white-space:nowrap}
-.problem-float-word:nth-child(1){top:10%;left:-20px;animation:floatSlow 5s ease-in-out infinite}
-.problem-float-word:nth-child(2){top:50%;right:-40px;animation:floatSlow 6s ease-in-out .5s infinite}
-.problem-float-word:nth-child(3){bottom:15%;left:0;animation:floatSlow 5.5s ease-in-out 1s infinite}
-.problem-float-word{opacity:0}
-@keyframes wordCycle{0%,100%{opacity:0}15%,35%{opacity:1}50%,99%{opacity:0}}
-.problem-float-word:nth-child(1){top:10%;left:-20px;animation:floatSlow 5s ease-in-out infinite,wordCycle 9s ease-in-out infinite}
-.problem-float-word:nth-child(2){top:50%;right:-40px;animation:floatSlow 6s ease-in-out infinite,wordCycle 9s ease-in-out 3s infinite}
-.problem-float-word:nth-child(3){bottom:15%;left:0;animation:floatSlow 5.5s ease-in-out infinite,wordCycle 9s ease-in-out 6s infinite}
+
+/* NEW FLOAT WORDS CSS */
+.problem-float-word{opacity:0;transition:opacity .8s ease;position:absolute;font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink-s);white-space:nowrap}
+.problem-float-word:nth-of-type(1){top:10%;left:-20px}
+.problem-float-word:nth-of-type(2){top:50%;right:-40px}
+.problem-float-word:nth-of-type(3){bottom:15%;left:0}
+.problem-float-word:nth-of-type(4){top:30%;right:-60px}
+.problem-float-word.visible{opacity:1}
 .problem-stats{display:flex;flex-direction:column;gap:20px}
 .problem-stat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative;overflow:hidden;transition:all .4s}
 .problem-stat:hover{border-color:rgba(212,133,154,.2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
@@ -2072,24 +2071,6 @@ function renderJournal() {
       </div>
     </div>
     // Report inappropriate content in journal entry
-    function reportEntry() {
-      const area = document.getElementById('journal-draft');
-      const text = area ? area.value.trim() : '';
-      if (!text) { toast('Nothing to report.'); return; }
-      const reason = prompt('Describe what is inappropriate (e.g., phone number, social media, abuse):', '');
-      if (reason === null) return;
-      fetch('/api/report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, reason })
-      })
-        .then(r => r.json())
-        .then(res => {
-          if (res.ok) toast('Thank you for reporting. Our team will review this entry.');
-          else toast(res.error || 'Failed to submit report.');
-        })
-        .catch(() => toast('Failed to submit report.'));
-    }
     ${state.streak >= 3 ? `<div class="streak-nudge reveal-on-scroll"><div class="streak-nudge-inner"><span style="font-size:16px;">🔥</span><div class="streak-nudge-text">${getStreakNudge(state.streak)}</div></div></div>` : ''}
     <div class="cta-block">
       <button class="btn" onclick="sealEntry()">🌙 Seal tonight's entry</button>
@@ -3121,6 +3102,21 @@ async function resetPassword() {
     go('s-login');
   } catch (e) { toast(e.message); }
 }
+// ═══════════════════════════════════════
+// FLOATING WORDS CYCLER (Landing Problem Section)
+// ═══════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  const words = document.querySelectorAll('.problem-float-word');
+  let idx = 0;
+  function cycleWords() {
+    words.forEach((w, i) => w.classList.toggle('visible', i === idx));
+    idx = (idx + 1) % words.length;
+  }
+  if (words.length) {
+    cycleWords();
+    setInterval(cycleWords, 1800);
+  }
+});
 </script>
 </body>
 </html>
