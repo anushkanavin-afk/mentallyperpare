@@ -19,6 +19,7 @@ const webpush = require('web-push');
 
 const app = express();
 app.set('trust proxy', 1); // Trust Railway/Heroku/Vercel proxy for correct IP handling
+console.log('TRUST PROXY IS SET - server.js loaded:', new Date().toISOString());
 // Trust the first proxy (for Railway, Vercel, Heroku, etc.)
 app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
