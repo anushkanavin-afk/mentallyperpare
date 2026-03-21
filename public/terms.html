@@ -1,51 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms & Conditions</title>
-  <link rel="stylesheet" href="/public/index.css">
-  <style>
-    body { font-family: 'Inter', sans-serif; background: #f8f8fa; margin: 0; padding: 0; }
-    .terms-container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 32px; }
-    h1 { font-size: 2rem; margin-bottom: 24px; }
-    h2 { font-size: 1.2rem; margin-top: 32px; }
-    ul { margin-left: 1.2em; }
-    p, li { color: #333; line-height: 1.7; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Service - Mentally Prepare</title>
+<link rel="icon" href="/icon-192.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600&family=Lora:ital@1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0d0b10;
+    --ink: #f8f2ff;
+    --ink-m: #c4b8d4;
+    --ink-s: #8a7ea0;
+    --rose: #d4859a;
+    --rose-l: #e8a7b8;
+    --gold: #c9a96e;
+    --line: rgba(248,242,255,.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--rose-l);
+    text-decoration: none;
+    margin-bottom: 40px;
+    opacity: .8;
+  }
+  .back-link:hover { opacity: 1; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  h1 em { font-style: italic; color: var(--rose-l); }
+  .subtitle {
+    font-size: 13px;
+    color: var(--ink-s);
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 36px 0 12px;
+    color: var(--gold);
+  }
+  p, li {
+    font-size: 14px;
+    color: var(--ink-m);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--ink); font-weight: 500; }
+  a { color: var(--rose-l); }
+  .highlight-box {
+    padding: 16px 20px;
+    background: rgba(123,94,167,.06);
+    border: 1px solid rgba(123,94,167,.12);
+    border-radius: 14px;
+    margin: 20px 0;
+  }
+  .highlight-box p { margin-bottom: 4px; }
+  .footer-note {
+    font-size: 12px;
+    color: var(--ink-s);
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+</style>
 </head>
 <body>
-  <div class="terms-container">
-    <h1>Terms & Conditions</h1>
-    <p>Welcome to Mentally Prepare. By using this site, you agree to the following terms and conditions. Please read them carefully.</p>
-    <h2>1. Use of Service</h2>
-    <ul>
-      <li>You must be at least 18 years old or have parental/guardian consent to use this service.</li>
-      <li>Do not share personal contact information (phone numbers, social media, etc.) in journal entries or messages.</li>
-      <li>Respect the privacy and boundaries of your match/partner at all times.</li>
-    </ul>
-    <h2>2. Content Guidelines</h2>
-    <ul>
-      <li>Do not post abusive, harassing, or illegal content.</li>
-      <li>Report any inappropriate content using the provided tools.</li>
-      <li>Entries may be reviewed by moderators for safety and compliance.</li>
-    </ul>
-    <h2>3. Data & Privacy</h2>
-    <ul>
-      <li>Your data is stored securely and is not shared with third parties except as required by law.</li>
-      <li>You may export or delete your data at any time from your account settings.</li>
-      <li>See our <a href="/privacy" target="_blank">Privacy Policy</a> for more details.</li>
-    </ul>
-    <h2>4. Disclaimer</h2>
-    <ul>
-      <li>This service is not a substitute for professional mental health care.</li>
-      <li>If you are in crisis, please contact a helpline or seek professional help immediately.</li>
-    </ul>
-    <h2>5. Changes</h2>
-    <ul>
-      <li>We may update these terms at any time. Continued use of the service means you accept the new terms.</li>
-    </ul>
-    <p style="margin-top:32px; color:#888; font-size:0.95em;">Last updated: March 2026</p>
+<div class="container">
+  <a href="/" class="back-link" aria-label="Back to home">Back to home</a>
+
+  <h1>Terms of <em>Service</em></h1>
+  <p class="subtitle">Last updated: March 21, 2026</p>
+
+  <div class="highlight-box">
+    <p><strong>The short version:</strong> This is an anonymous emotional journaling service. Use it respectfully, do not abuse anonymity, and do not treat it as emergency or clinical care.</p>
   </div>
+
+  <h2>1. Eligibility</h2>
+  <p>You must be at least 18 years old to use Mentally Prepare, or use it only with parent or guardian consent where legally permitted. By creating an account, you confirm that you meet this requirement and that the information you provide is accurate.</p>
+
+  <h2>2. Acceptable Use</h2>
+  <p>You agree to use the service in a way that protects the safety and anonymity of other users.</p>
+  <ul>
+    <li>No harassment, intimidation, stalking, bullying, or abuse</li>
+    <li>No sharing of phone numbers, email addresses, social handles, or other direct contact details</li>
+    <li>No impersonation of another person, institution, or identity</li>
+  </ul>
+
+  <h2>3. Anonymous Content</h2>
+  <p>Your journal entries are intended to be shared only with your matched partner within the product experience. Content is not public, not searchable, and not designed for social distribution. You are responsible for what you choose to write, even when you remain unnamed.</p>
+
+  <h2>4. Safety</h2>
+  <p>We may surface crisis-support information when content appears to indicate self-harm or acute distress. Users may report content they believe is unsafe or abusive. We reserve the right to investigate misuse, restrict access, or remove content or accounts when safety requires it.</p>
+
+  <h2>5. Prohibited Content</h2>
+  <ul>
+    <li>Hate speech or content targeting protected groups</li>
+    <li>Sexually explicit, exploitative, or coercive content</li>
+    <li>Threats of violence, extortion, or encouragement of harm</li>
+  </ul>
+
+  <h2>6. Account Termination</h2>
+  <p>We may suspend or permanently remove accounts that violate these terms, abuse platform features, evade safety controls, or create risk for other users or the service. We may also disable access where required for legal or operational reasons.</p>
+
+  <h2>7. Limitation of Liability</h2>
+  <p>Mentally Prepare is a reflective journaling product, not therapy, medical advice, psychiatric treatment, emergency response, or crisis intervention. Emotional content can be difficult, inaccurate, or upsetting. To the maximum extent permitted by law, you use the service at your own risk.</p>
+
+  <h2>8. Contact</h2>
+  <p>Questions about these terms can be sent to <strong>terms@mentallyprepare.in</strong>.</p>
+
+  <div class="footer-note">
+    <p>Using the service after updates to these terms means you accept the revised version.</p>
+  </div>
+</div>
 </body>
 </html>

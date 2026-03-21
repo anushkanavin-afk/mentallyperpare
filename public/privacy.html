@@ -268,7 +268,7 @@
   <p>We use a single session cookie for authentication. It is:</p>
   <ul>
     <li>HTTP-only (not accessible via JavaScript)</li>
-    <li>SameSite: Lax (prevents CSRF)</li>
+    <li>SameSite: Strict (prevents CSRF cross-site attacks)</li>
     <li>Expires after 30 days of inactivity</li>
   </ul>
   <p>We do not use any third-party cookies, analytics cookies, or tracking cookies.</p>
