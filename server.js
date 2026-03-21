@@ -10,6 +10,7 @@ app.get('/terms', (req, res) => {
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const SQLiteStore = require('connect-sqlite3')(session);
 const helmet = require('helmet');
 const crypto = require('crypto');
 const path = require('path');
@@ -21,8 +22,6 @@ const webpush = require('web-push');
 const app = express();
 app.set('trust proxy', 1); // Trust Railway/Heroku/Vercel proxy for correct IP handling
 console.log('TRUST PROXY IS SET - server.js loaded:', new Date().toISOString());
-// Trust the first proxy (for Railway, Vercel, Heroku, etc.)
-app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
 const IS_PROD = process.env.NODE_ENV === 'production';
 
@@ -315,10 +314,18 @@ function getSessionSecret() {
 }
 
 app.use(session({
+  store: new SQLiteStore({
+    db: 'mentally-prepare.db',
+    dir: __dirname
+  }),
   secret: getSessionSecret(),
   resave: false,
   saveUninitialized: false,
-  cookie: { httpOnly: true, sameSite: 'strict', secure: IS_PROD, maxAge: 30 * 24 * 60 * 60 * 1000 }
+  cookie: {
+    secure: IS_PROD,
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+  }
 }));
 
 // ─── HTTPS redirect (production) ────────
