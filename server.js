@@ -1,8 +1,3 @@
-console.log('HELLO FROM SERVER.JS', new Date().toISOString());
-// Serve terms.html
-app.get('/terms', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'terms.html'));
-});
 // ═══════════════════════════════════════
 // MENTALLY PREPARE — Backend Server v2
 // SQLite · Push Notifications · Razorpay · Stripe
@@ -10,7 +5,6 @@ app.get('/terms', (req, res) => {
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-// Ensure connect-sqlite3 is imported at the top
 const SQLiteStore = require('connect-sqlite3')(session);
 const helmet = require('helmet');
 const crypto = require('crypto');
